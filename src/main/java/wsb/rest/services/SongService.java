@@ -17,4 +17,8 @@ public class SongService {
     public List<Song> findAll() {
         return songRepository.findAll();
     }
+
+    public Song find(Long id) {
+        return songRepository.find(id);
+    }
 }
