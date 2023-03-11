@@ -9,6 +9,7 @@ import wsb.rest.services.SongService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/songs")
 public class SongController {
 
     final private SongService songService;
@@ -17,12 +18,12 @@ public class SongController {
         this.songService = songService;
     }
 
-    @GetMapping("/songs")
+    @GetMapping
     List<Song> findAll() {
         return songService.findAll();
     }
 
-    @GetMapping("/songs/{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Song> find(@PathVariable Long id) {
         Song song = songService.find(id);
         if (song != null) {
@@ -32,7 +33,7 @@ public class SongController {
         }
     }
 
-    @PostMapping("/songs")
+    @PostMapping
     ResponseEntity<Song> create(@RequestBody Song song) {
         Song createdSong = songService.create(song);
         if (createdSong != null) {
@@ -42,7 +43,7 @@ public class SongController {
         }
     }
 
-    @PutMapping("/songs/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<Song> update(@PathVariable Long id, @RequestBody Song song) {
         Song updatedSong = songService.update(id, song);
         if (updatedSong != null) {
@@ -52,7 +53,7 @@ public class SongController {
         }
     }
 
-    @DeleteMapping("/songs/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<Void> delete(@PathVariable Long id) {
         songService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
