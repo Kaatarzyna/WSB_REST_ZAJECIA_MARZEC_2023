@@ -2,7 +2,7 @@
 GET http://localhost:8080/songs
 
 ### find
-GET http://localhost:8080/songs/25
+GET http://localhost:8080/songs/1
 
 ### create
 POST http://localhost:8080/songs
@@ -13,4 +13,14 @@ Content-Type: application/json
   "author": "Author",
   "year": 2028
 
+}
+
+### update
+PUT http://localhost:8080/songs/155
+Content-Type: application/json
+
+{
+  "title": "AKTUALIZACJA",
+  "author": "Nowy wykonawca",
+  "year": 2091
 }

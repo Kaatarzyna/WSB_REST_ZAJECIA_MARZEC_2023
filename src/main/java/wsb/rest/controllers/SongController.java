@@ -42,5 +42,15 @@ public class SongController {
         }
     }
 
+    @PutMapping("/songs/{id}")
+    ResponseEntity<Song> update(@PathVariable Long id, @RequestBody Song song) {
+        Song updatedSong = songService.update(id, song);
+        if (updatedSong != null) {
+            return ResponseEntity.ok(updatedSong);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 
 }

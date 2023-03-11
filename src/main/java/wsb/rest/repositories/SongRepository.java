@@ -39,4 +39,17 @@ public class SongRepository {
         songs.add(createdSong);
         return createdSong;
     }
+
+    public Song update(Long id, Song song) {
+        Song songToUpdate = find(id);
+        if (songToUpdate == null) {
+            return null;
+        }
+
+        songToUpdate.setTitle(song.getTitle());
+        songToUpdate.setAuthor(song.getAuthor());
+        songToUpdate.setYear(song.getYear());
+
+        return songToUpdate;
+    }
 }

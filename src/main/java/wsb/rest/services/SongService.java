@@ -25,4 +25,8 @@ public class SongService {
     public Song create(Song song) {
         return songRepository.create(song);
     }
+
+    public Song update(Long id, Song song) {
+        return songRepository.update(id, song);
+    }
 }
