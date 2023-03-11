@@ -52,4 +52,13 @@ public class SongRepository {
 
         return songToUpdate;
     }
+
+    public void delete(Long id) {
+        Song songToRemove = find(id);
+        if (songToRemove == null) {
+            return;
+        }
+
+        songs.remove(songToRemove);
+    }
 }

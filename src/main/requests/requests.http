@@ -24,3 +24,6 @@ Content-Type: application/json
   "author": "Nowy wykonawca",
   "year": 2091
 }
+
+### delete
+DELETE http://localhost:8080/songs/1

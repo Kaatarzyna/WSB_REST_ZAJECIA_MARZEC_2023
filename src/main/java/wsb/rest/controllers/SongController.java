@@ -52,5 +52,11 @@ public class SongController {
         }
     }
 
+    @DeleteMapping("/songs/{id}")
+    ResponseEntity<Void> delete(@PathVariable Long id) {
+        songService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 
 }
