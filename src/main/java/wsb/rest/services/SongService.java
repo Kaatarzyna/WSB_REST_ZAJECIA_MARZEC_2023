@@ -21,4 +21,8 @@ public class SongService {
     public Song find(Long id) {
         return songRepository.find(id);
     }
+
+    public Song create(Song song) {
+        return songRepository.create(song);
+    }
 }

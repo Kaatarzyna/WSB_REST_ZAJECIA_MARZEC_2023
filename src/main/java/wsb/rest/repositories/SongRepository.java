@@ -5,10 +5,11 @@ import wsb.rest.models.Song;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class SongRepository {
+
+    static Long currentId = 4L;
 
     private List<Song> songs = new LinkedList<>() {{
         add(new Song(1L, "Yellow", "Coldplay", 2005L));
@@ -25,5 +26,17 @@ public class SongRepository {
                 .filter(song -> song.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public Song create(Song song) {
+        Song createdSong = new Song(
+                currentId++,
+                song.getTitle(),
+                song.getAuthor(),
+                song.getYear()
+        );
+
+        songs.add(createdSong);
+        return createdSong;
     }
 }
